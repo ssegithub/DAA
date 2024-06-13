@@ -1,0 +1,22 @@
+2. Write a program to check the given no is Armstrong or not using recursive function.
+
+#include <stdio.h>
+int isArmstrong(int num, int originalNum, int result) {
+    if (originalNum == 0) {
+        return num == result;
+    } else {
+        int digit = originalNum % 10;
+        result += digit * digit * digit;
+        return isArmstrong(num, originalNum / 10, result);
+    }}
+int main() {
+    int number;
+    printf("Enter a number: ");
+    scanf("%d", &number);
+    if (isArmstrong(number, number, 0)) {
+        printf("%d is an Armstrong number.\n", number);
+    } else {
+        printf("%d is not an Armstrong number.\n", number);
+    }
+    return 0;
+}
