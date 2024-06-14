@@ -1,0 +1,31 @@
+8. Write a program to generate all the prime numbers using recursion
+
+#include <stdio.h>
+int isPrime(int num, int i) {
+    if (i == 1) {
+        return 1;
+    } else {
+        if (num % i == 0) {
+            return 0;
+        } else {
+            return isPrime(num, i - 1);
+        }
+    }
+}
+
+void generatePrimes(int n) {
+    if (n > 1) {
+        if (isPrime(n, n / 2) == 1) {
+            printf("%d ", n);
+        }
+        generatePrimes(n - 1);
+    }
+}
+int main() {
+    int limit;
+    printf("Enter the limit: ");
+    scanf("%d", &limit);
+    printf("Prime numbers up to %d are: ", limit);
+    generatePrimes(limit);
+    return 0;
+}
